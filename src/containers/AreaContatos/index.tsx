@@ -1,5 +1,7 @@
+import { Main } from './style';
+
 const AreaContatos = () => {
-  return <div>Area de Contatos</div>;
+  return <Main>Area de Contatos</Main>;
 };
 
 export default AreaContatos;
