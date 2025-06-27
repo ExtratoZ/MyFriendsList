@@ -1,16 +1,12 @@
-import Filtro from '../../components/Filter';
+import Filtros from '../../components/Filtros';
+import Pesquisa from '../../components/Pesquisa';
 import { Aside } from './style';
 
 const BarraLateral = () => {
   return (
     <Aside>
-      <Filtro />
-      <ul>
-        <li>Família</li>
-        <li>Trabalho</li>
-        <li>Amigos</li>
-        <li>Todos</li>
-      </ul>
+      <Pesquisa />
+      <Filtros />
     </Aside>
   );
 };

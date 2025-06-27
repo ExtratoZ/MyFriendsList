@@ -1,7 +1,12 @@
+import Contato from '../../components/Contato';
 import { Main } from './style';
 
 const AreaContatos = () => {
-  return <Main>Area de Contatos</Main>;
+  return (
+    <Main>
+      <Contato />
+    </Main>
+  );
 };
 
 export default AreaContatos;
