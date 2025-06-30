@@ -1,12 +1,41 @@
-import { Categorias } from "./style";
+import { Categorias } from './style';
+import * as enums from '../../utils/enums/ContatoEnum';
+import { useDispatch, useSelector } from 'react-redux';
+import type { RootReducer } from '../../store';
+import { alterarFiltro } from '../../store/reducers/ReducerFiltro';
 
-const Filtros = () => {
+export type Props = {
+  label: string;
+  criterio: 'categoria' | 'todas';
+  valor?: enums.Categoria;
+};
+
+const Filtros = ({ label, criterio, valor }: Props) => {
+  const dispatch = useDispatch();
+  const { contatos } = useSelector((state: RootReducer) => state);
+
+  const contaContatos = () => {
+    if (criterio === 'todas') return contatos.itens.length;
+    if (criterio === 'categoria') {
+      return contatos.itens.filter((item) => item.categoria === valor).length;
+    }
+  };
+
+  const filtrar = () => {
+    dispatch(
+      alterarFiltro({
+        criterio,
+        valor,
+      })
+    );
+  };
+
+  const contador = contaContatos();
+
   return (
-    <Categorias>
-      <li>Trabalho</li>
-      <li>Família</li>
-      <li>Amigos</li>
-      <li>Todos</li>
+    <Categorias onClick={filtrar}>
+      <p>{label}</p>
+      <p>{contador}</p>
     </Categorias>
   );
 };
