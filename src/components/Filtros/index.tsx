@@ -6,28 +6,24 @@ import { alterarFiltro } from '../../store/reducers/ReducerFiltro';
 
 export type Props = {
   label: string;
+  contador?: number;
   criterio: 'categoria' | 'todas';
   valor?: enums.Categoria;
 };
 
 const Filtros = ({ label, criterio, valor }: Props) => {
   const dispatch = useDispatch();
-  const { contatos } = useSelector((state: RootReducer) => state);
+  const contatos = useSelector((state: RootReducer) => state.contatos);
+
+  const filtrar = () => {
+    dispatch(alterarFiltro({ criterio, valor }));
+  };
 
   const contaContatos = () => {
     if (criterio === 'todas') return contatos.itens.length;
     if (criterio === 'categoria') {
       return contatos.itens.filter((item) => item.categoria === valor).length;
     }
-  };
-
-  const filtrar = () => {
-    dispatch(
-      alterarFiltro({
-        criterio,
-        valor,
-      })
-    );
   };
 
   const contador = contaContatos();

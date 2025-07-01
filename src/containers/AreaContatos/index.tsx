@@ -6,13 +6,28 @@ import ListaContatos from './styles';
 
 const AreaContatos = () => {
   const { itens } = useSelector((state: RootReducer) => state.contatos);
+  const { termo, criterio, valor } = useSelector(
+    (state: RootReducer) => state.filtros
+  );
 
-  const contatosFiltrados = () => {
-    let filtroContatos = itens;
-    return filtroContatos;
+  const filtraContatos = () => {
+    let contatosFiltrados = itens;
+
+    if (termo) {
+      contatosFiltrados = contatosFiltrados.filter(
+        (item) => item.titulo.toLowerCase().search(termo.toLowerCase()) >= 0
+      );
+    }
+    if (criterio === 'categoria') {
+      contatosFiltrados = contatosFiltrados.filter(
+        (item) => item.categoria === valor
+      );
+    }
+    return contatosFiltrados;
   };
 
-  const qtdTask = contatosFiltrados();
+  const qtdTask = filtraContatos();
+  console.log(filtraContatos());
 
   return (
     <MainContainer>
