@@ -1,5 +1,6 @@
 import { createSlice, type PayloadAction } from '@reduxjs/toolkit';
 import * as enums from '../../utils/enums/ContatoEnum';
+import type Contato from '../../models/Contato';
 
 type FiltroState = {
   termo?: string;

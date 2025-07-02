@@ -24,4 +24,12 @@ export const MainContainer = styled.main`
   overflow-y: scroll;
 `;
 
+export const Pesquisa = styled.input`
+  border: none;
+  border-bottom: 1px solid #3674b5;
+  width: 100%;
+  padding: 8px;
+  margin-bottom: 40px;
+`;
+
 export default GlobalStyle;

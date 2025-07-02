@@ -59,8 +59,20 @@ const ContatoSlice = createSlice({
         state.itens.push(action.payload);
       }
     },
+    cadastrar: (state, action: PayloadAction<Contato>) => {
+      const contatoExiste = state.itens.find(
+        (contato) =>
+          contato.titulo.toLowerCase() === action.payload.titulo.toLowerCase()
+      );
+
+      if (contatoExiste) {
+        alert('Contato já adicionado a lista!');
+      } else {
+        state.itens.push(action.payload);
+      }
+    },
   },
 });
 
-export const { remove, add } = ContatoSlice.actions;
+export const { remove, add, cadastrar } = ContatoSlice.actions;
 export default ContatoSlice.reducer;

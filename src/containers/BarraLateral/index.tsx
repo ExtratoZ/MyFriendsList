@@ -1,9 +1,10 @@
 import Filtros from '../../components/Filtros';
-import { Aside, Pesquisa } from './style';
+import { Aside } from './style';
 import * as enums from '../../utils/enums/ContatoEnum';
 import { useDispatch, useSelector } from 'react-redux';
 import type { RootReducer } from '../../store';
 import { alterarTermo } from '../../store/reducers/ReducerFiltro';
+import { Pesquisa } from '../../styles';
 
 const BarraLateral = () => {
   const dispatch = useDispatch();
