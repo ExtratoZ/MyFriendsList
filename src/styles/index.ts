@@ -1,4 +1,5 @@
 import styled, { createGlobalStyle } from 'styled-components';
+import variaveis from './variaveis';
 
 const GlobalStyle = createGlobalStyle`
     * {
@@ -8,8 +9,8 @@ const GlobalStyle = createGlobalStyle`
         text-decoration: none;
         list-style: none;
         font-family: 'Roboto', sans-serif;
-        background-color: #222222;
-        color: #F2F2F2;
+        background-color: ${variaveis.primary};
+        color: ${variaveis.text};
     }
 `;
 
@@ -24,12 +25,34 @@ export const MainContainer = styled.main`
   overflow-y: scroll;
 `;
 
+export const Button = styled.button`
+  font-size: 16px;
+  padding: 8px;
+  border: 1px solid ${variaveis.secondary};
+  border-radius: 8px;
+
+  &:hover {
+    background-color: ${variaveis.hover};
+  }
+`;
+
 export const Pesquisa = styled.input`
   border: none;
-  border-bottom: 1px solid #3674b5;
+  border-bottom: 1px solid ${variaveis.secondary};
   width: 100%;
   padding: 8px;
   margin-bottom: 40px;
+
+  &::placeholder {
+    font-size: 16px;
+    color: ${variaveis.text};
+  }
+
+  &:focus {
+    border: 1px solid ${variaveis.secondary};
+    border-radius: 4px;
+    outline: none;
+  }
 `;
 
 export default GlobalStyle;

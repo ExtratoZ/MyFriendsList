@@ -1,7 +1,7 @@
 import { useState, type FormEvent } from 'react';
 import { useDispatch } from 'react-redux';
 import { useNavigate } from 'react-router-dom';
-import { MainContainer, Pesquisa } from '../../styles';
+import { MainContainer, Pesquisa, Button } from '../../styles';
 import FormArea, { Opcoes } from './styles';
 import * as enums from '../../utils/enums/ContatoEnum';
 import Contato from '../../models/Contato';
@@ -31,18 +31,21 @@ const Formulario = () => {
           onChange={(e) => setTitulo(e.target.value)}
           type="text"
           placeholder="Nome"
+          required
         />
         <Pesquisa
           value={email}
           onChange={(e) => setEmail(e.target.value)}
           type="text"
           placeholder="Email"
+          required
         />
         <Pesquisa
           value={numero}
           onChange={(e) => setNumero(e.target.value)}
           type="number"
           placeholder="Número"
+          required
         />
         <Opcoes>
           <h4>Categoria</h4>
@@ -60,7 +63,7 @@ const Formulario = () => {
             </div>
           ))}
         </Opcoes>
-        <button type="submit">Cadastrar</button>
+        <Button type="submit">Cadastrar</Button>
       </FormArea>
     </MainContainer>
   );

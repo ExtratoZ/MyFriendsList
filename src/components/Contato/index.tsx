@@ -1,7 +1,8 @@
+import { useDispatch } from 'react-redux';
 import * as S from './style';
+import { Button } from '../../styles'
 import Contato from '../../models/Contato';
 import { remove } from '../../store/reducers/ReducerContato';
-import { useDispatch } from 'react-redux';
 
 type Props = Contato;
 
@@ -10,12 +11,16 @@ const Contatos = ({ titulo, email, telefone, categoria, id }: Props) => {
 
   return (
     <S.AbaContato>
-      <S.Nome>{titulo}</S.Nome>
-      <S.Email>{email}</S.Email>
-      <S.Cel>{telefone}</S.Cel>
-      <span>{categoria}</span>
-      <button onClick={() => dispatch(remove(id))}>Remover</button>
-      <button>Editar</button>
+      <div>
+        <S.Nome>{titulo}</S.Nome>
+        <S.Email>{email}</S.Email>
+        <S.Cel>{telefone}</S.Cel>
+        <span>{categoria}</span>
+      </div>
+      <S.ActionBar>
+        <Button onClick={() => dispatch(remove(id))}>Excluir</Button>
+        <Button>Editar</Button>
+      </S.ActionBar>
     </S.AbaContato>
   );
 };
