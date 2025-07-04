@@ -9,16 +9,18 @@ export const AbaContato = styled.div`
   grid-template-columns: 1fr auto;
 `;
 
-export const Nome = styled.h2`
-  margin-bottom: 8px;
+export const InfoContato = styled.div`
+  display: flex;
+  flex-direction: column;
+  gap: 8px;
 `;
 
-export const Email = styled.p`
-  margin-bottom: 8px;
-`;
-
-export const Cel = styled.h4`
-  margin-bottom: 8px;
+export const Input = styled.input`
+  padding: 6px;
+  border: 1px solid ${variaveis.secondary};
+  border-radius: 6px;
+  font-size: 14px;
+  width: 90%;
 `;
 
 export const ActionBar = styled.div`
