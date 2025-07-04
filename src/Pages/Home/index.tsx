@@ -4,7 +4,7 @@ import BarraLateral from '../../containers/BarraLateral';
 
 const Home = () => (
   <>
-    <BarraLateral />
+    <BarraLateral mostrarFiltros={true} />
     <AreaContatos />
     <BotaoContato />
   </>

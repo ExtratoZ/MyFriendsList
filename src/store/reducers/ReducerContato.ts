@@ -59,7 +59,7 @@ const ContatoSlice = createSlice({
         state.itens.push(action.payload);
       }
     },
-    cadastrar: (state, action: PayloadAction<Contato>) => {
+    cadastrar: (state, action: PayloadAction<Omit<Contato, 'id'>>) => {
       const contatoExiste = state.itens.find(
         (contato) =>
           contato.titulo.toLowerCase() === action.payload.titulo.toLowerCase()
@@ -68,7 +68,12 @@ const ContatoSlice = createSlice({
       if (contatoExiste) {
         alert('Contato já adicionado a lista!');
       } else {
-        state.itens.push(action.payload);
+        const ultimoContato = state.itens[state.itens.length - 1];
+        const novoId = {
+          ...action.payload,
+          id: ultimoContato ? ultimoContato.id + 1 : 1,
+        };
+        state.itens.push(novoId);
       }
     },
     editarContato: (state, action: PayloadAction<Contato>) => {
